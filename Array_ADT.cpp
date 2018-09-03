@@ -1,7 +1,9 @@
-#include<iostream>
+#include<iostream.h>
 #include<conio.h>
 #include<stdio.h>
-using namespace std;
+#include<stdlib.h>
+//using namespace std;
+
 class ArrayADT
 {
 	int capacity;
@@ -14,10 +16,12 @@ class ArrayADT
 		lastindex=-1;
 		ptr=NULL;
 	}
-		~ArrayADT()
+
+	~ArrayADT()
 	{
 		delete []ptr;
 	}
+
 	ArrayADT (ArrayADT &list)
 	{
 		capacity=list.capacity;
@@ -39,7 +43,9 @@ class ArrayADT
 ostream& operator<<(ostream &dout,ArrayADT l)
 {
 	if(l.lastindex==-1)
+	{
 	cout<"\nList is empty";
+	}
 	for(int i=0;i<l.countitem();i++)
 		cout<<" "<<l.getitem(i);
 		return(dout);
@@ -98,17 +104,17 @@ int ArrayADT::countitem()
 void ArrayADT::edititem(int index,int value)
 {
 	if(index<0||index>lastindex)
-	
+
 		 cout<<"\nInvalid index number";
 	else
-	     ptr[index]=value;  
-	
+	     ptr[index]=value;
+
 }
 int ArrayADT::setitem(int index,int value)
 {
 	int i;
 	if(index==lastindex-1)
-	cout<<"\nIndex is overflow";
+	cout<<"\nIndex overflow";
 	else if(index>capacity-1||index<0)
 	cout<<"\nInvalid index option";
 	else if(index>lastindex+1)
@@ -139,8 +145,8 @@ int ArrayADT::getitem(int index)
     }
     if(index>lastindex||index<0)
     {
-    	cout<<"\nInvalid index number";
-    	return(-1);
+	cout<<"\nInvalid index number";
+	return(-1);
 	}
 	return (ptr[index]);
 }
@@ -155,72 +161,73 @@ int main()
 	ArrayADT l1;
 	int a,b,c,d;
 	while(1)
- {
-	cout<<"\n1.Create array list";
-	cout<<"\n2.Set items in the array";
-	cout<<"\n3.Search item in the array";
-	cout<<"\n4.Remove any item in the array";
-	cout<<"\n5.Count item in the array";
-	cout<<"\n6.Edit item in the array";
-	cout<<"\n7.Getitem in the array";
-	cout<<"\n8.Sort items in the array";
-	cout<<"\n9.Exit";
-	cout<<"\n10.Show the array list";
-    cout<<"\n\nEnter your choice";
+	{
+	clrscr();
+	cout<<"\n1.Create array list.";
+	cout<<"\n2.Set items in the array.";
+	cout<<"\n3.Search item in the array.";
+	cout<<"\n4.Remove any item in the array.";
+	cout<<"\n5.Count item in the array.";
+	cout<<"\n6.Edit item in the array.";
+	cout<<"\n7.Getitem in the array.";
+	cout<<"\n8.Sort items in the array.";
+	cout<<"\n9.Show the array list.";
+	cout<<"\n10.Exit.";
+	cout<<"\n\nEnter your choice.";
 	cin>>a;
 	switch(a)
 	{
-		case 1:
-			cout<<"\nHow many array value will be create";
-			scanf("%d",&b);
-			l1.createarray(b);
-			break;
+	    case 1:
+		cout<<"\nHow many array values are required?  ";
+		scanf("%d",&b);
+		l1.createarray(b);
+		break;
 	    case 2:
-	    	cout<<"\nEnter the index and value";
-	    	cin>>b>>c;
-	    	d=l1.setitem(b,c);
-	    	cout<<"\nYour set item is:"<<d;
-	    	break;
-		case 3:
-			cout<<"\nEnter whose value will you search";
-			scanf("%d",&b);
-			c=l1.searchitem(b);
-			cout<<"\n"<<c;
-			break;
-		case 4:
-			cout<<"\nEnter index to remove value";
-			cin>>b;
-			l1.removeitem(b);
-			break;
-		case 5:
-		    c=l1.countitem();
-		    cout<<"\nThe number of item is:"<<c;
-            break;	
-		case 6:
-			cout<<"\nEnter index and value to be edit";
-			cin>>b>>c;
-			l1.edititem(b,c);
-			break;
-		case 7:
-			cout<<"Enter your value to get item";
-			scanf("%d",&b);
-			c=l1.getitem(b);
-			cout<<"\nyour get value is:"<<c;
-			break;
-		case 8:
-			l1.shortitem();
-			break;
-		case 9:
-			exit(0);
-			break;
-		case 10:
-			cout<<l1;
-			break;
-		default:
-			cout<<"\n\nInvalid option";
-	 } 
-	 getch();
-  }
+		cout<<"\nEnter the index and value : ";
+		cin>>b>>c;
+		d=l1.setitem(b,c);
+		cout<<"\nYour set item is: "<<d;
+		break;
+	    case 3:
+		cout<<"\nEnter whose value will you search : ";
+		scanf("%d",&b);
+		c=l1.searchitem(b);
+		cout<<"\n"<<c;
+		break;
+	    case 4:
+		cout<<"\nEnter index to remove value: ";
+		cin>>b;
+		l1.removeitem(b);
+		break;
+	    case 5:
+		c=l1.countitem();
+		cout<<"\nThe number of item is: "<<c;
+		break;
+	    case 6:
+		cout<<"\nEnter index and value to be edit: ";
+		cin>>b>>c;
+		l1.edititem(b,c);
+		break;
+	    case 7:
+		cout<<"Enter your value to get item: ";
+		scanf("%d",&b);
+		c=l1.getitem(b);
+		cout<<"\nyour get value is: "<<c;
+		break;
+	    case 8:
+		l1.shortitem();
+		break;
+	    case 9:
+		cout<<l1;
+		break;
+	    case 10:
+		exit(0);
+		break;
+	    default:
+		cout<<"\n\nInvalid option!!! ";
+	    }                                       //Switch closed
+	  printf("\nDone. Press any button to continue.");
+	  getch();
+	}                                         //while loop closed
 	 return 0;
-} 
-    
+}

@@ -39,7 +39,7 @@ class ArrayADT
 ostream& operator<<(ostream &dout,ArrayADT l)
 {
 	if(l.lastindex==-1)
-	cout<"\nList is empty";
+	cout<<"\nList is empty";
 	for(int i=0;i<l.countitem();i++)
 		cout<<" "<<l.getitem(i);
 		return(dout);
@@ -98,11 +98,11 @@ int ArrayADT::countitem()
 void ArrayADT::edititem(int index,int value)
 {
 	if(index<0||index>lastindex)
-	
+
 		 cout<<"\nInvalid index number";
 	else
-	     ptr[index]=value;  
-	
+	     ptr[index]=value;
+
 }
 int ArrayADT::setitem(int index,int value)
 {
@@ -195,7 +195,7 @@ int main()
 		case 5:
 		    c=l1.countitem();
 		    cout<<"\nThe number of item is:"<<c;
-            break;	
+            break;
 		case 6:
 			cout<<"\nEnter index and value to be edit";
 			cin>>b>>c;
@@ -218,9 +218,9 @@ int main()
 			break;
 		default:
 			cout<<"\n\nInvalid option";
-	 } 
+	 }
 	 getch();
   }
 	 return 0;
-} 
-    
+}
+

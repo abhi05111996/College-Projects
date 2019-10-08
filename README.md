@@ -1,3 +1,3 @@
 # College-Projects
-These all projects made by using Turbo CPP compiler.
+These all projects made by using Code Blocks CPP compiler.
 Thank you.

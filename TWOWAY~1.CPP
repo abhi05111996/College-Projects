@@ -1,8 +1,8 @@
-#include<iostream.h>
+#include<iostream>
 #include<conio.h>
 #include<stdio.h>
 #include<stdlib.h>
-//using namespace std;
+using namespace std;
 
 class TwoWayStack
 {
@@ -32,9 +32,9 @@ class TwoWayStack
 	int empty_Left();
 	int empty_Right();
 	int isFull();
-		
+
 };
-		
+
 
 void TwoWayStack::push_Left(int data)
 {
@@ -63,7 +63,7 @@ void TwoWayStack::push_Right(int data)
 }
 
 int TwoWayStack::pop_Left()
-{   
+{
     int val;
 	if(empty_Left())
 	{
@@ -76,12 +76,12 @@ int TwoWayStack::pop_Left()
 		val=top_left;
 		return val;
 	}
-		
-	
+
+
 }
 
 int TwoWayStack::pop_Right()
-{   
+{
     int val;
 	if(empty_Right())
 	{
@@ -94,9 +94,9 @@ int TwoWayStack::pop_Right()
 		top_right++;
 		return val;
 	}
-	
+
 }
-int TwoWayStack::peep_Left() 
+int TwoWayStack::peep_Left()
 {
 	if(empty_Left())
 	{
@@ -127,7 +127,7 @@ int TwoWayStack::empty_Left()
 int TwoWayStack::empty_Right()
 {
 	if(top_right==capacity)
-		return (1);		
+		return (1);
 	else
 	    return (0);
 }
@@ -136,11 +136,11 @@ int TwoWayStack::isFull()
 	if(top_left+1==top_right)
 	  return (1);
 	else
-	  return (0);	
+	  return (0);
 }
 int main()
 {
-	
+
 	int capacity,choice,data;
 	cout<<"\nEnter size for stack";
 	cin>>capacity;
@@ -213,7 +213,7 @@ int main()
         	default:
         		cout<<"\n\nInvalid option";
 		}
-	
+
 	}
 		return 0;
 }
